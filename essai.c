@@ -14,6 +14,9 @@
 /*                                                                        */
 /**************************************************************************/
 
+// DECLARATION DE FONCTIONS ...........................................
+void fois3(int *adresse);
+void div2(int *adresse1);
 
 
 // Début de la fonction Principale ........................................
@@ -21,9 +24,13 @@
 int	main(int argc, char *argv[])
 
 {
+	// DECLARATION DES VARIABLES .....................................
 	const int A = 0;
 	int a, b, c, d, resultat1, n, i;
 	double x, y, z, resultat2;
+	int *pointeur = &a;
+
+	// INITIALISATION DES VARIABLES ..................................
 	a = 1;
 	b = 2;
 	c = 3;
@@ -51,7 +58,7 @@ int	main(int argc, char *argv[])
 	printf("voici %f la valeur de mon 3eme float z\n\n", z);
 	printf("Bon, maintenant on va saisir de nouvelles variables:\n");
 	
-	printf("Entrez a:");
+/**** printf("Entrez a:");
 		while(a != 59)
 		{
 		printf("(valeur de a %d)\n",a);
@@ -62,27 +69,41 @@ int	main(int argc, char *argv[])
 			printf("trop grand pour un int connard. Bye ...\n");
 			return(0);
 			}
+****/
 
+
+	// ESSAIS SUR LES POINTEURS ...............................
+	printf("Entrez a:");
+	scanf("%d" , &a);
+	printf("voici la valeur de a:%d\n", a);
+	printf("voici l'adresse de a en Hexa:%p\n", &a);
+	printf("voici l'adresse de a en decimal:%d\n", &a);;
+	printf("voici la valeur du pointeur:%d\n", pointeur);
+	printf("Et voila ce qu'il y a a l'adresse du pointeur:%d\n", *pointeur);
+	fois3(&a); 
+	printf("Et voila sa valeur multipliée par 3:%d\n", *pointeur);
+	div2(&a);
+	printf("puis cette valeur divisée par 2:%d\n", *pointeur);
 
 	printf("Entrez b:");
 	scanf("%d", &b);
-		if(b > 32767)
-			{
-			printf("trop grand pour un int ptit con. Bye ...\n");
-			return(0);
-			}
-
 	printf("Entrez x:");
 	scanf("%lf", &x);
 	printf("Entrez y:");
 	scanf("%lf", &y);
 
-	// RESULTAT DIVISION  ................................
+	// RESULTAT MULTIPLICATION  ................................
+	resultat1 = a * b;
+	resultat2 = x * y;
+	printf("voici le resultat de a * b: %d\n", resultat1);
+	printf("voici le resultat de x * y: %f\n\n\n\n", resultat2);
+	
+	// RESULTAT DIVISION ......................................
 	resultat1 = a / b;
 	resultat2 = x / y;
 	printf("voici le resultat de a / b: %d\n", resultat1);
 	printf("voici le resultat de x / y: %f\n\n\n\n", resultat2);
-	
+
 	// BOUCLE DE LIGNES POINTILLEES  N FOIS ...............
 	printf("Boucle de lignes pointillées n fois\n");
 	printf("entrez le nombre n:");
@@ -95,8 +116,22 @@ int	main(int argc, char *argv[])
 	return(0); // renvoie le nombre 0 et s'arrête
 
 
-
 } 
 
 // fin de la fonction principale.....................................
+
+
+
+// FONCTION MULTIPLIER PAR 3 ......................................
+void fois3(int *adresse)
+{
+*adresse = *adresse * 3;
+}
+
+
+// FONCTION DIVISER PAR 2 .........................................
+void div2(int *adresse1)
+{
+*adresse1 = *adresse1 / 2;
+}
 
